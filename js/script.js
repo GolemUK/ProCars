@@ -1,50 +1,51 @@
-// ================= MODAL =================
-const heroButton = document.querySelector('.hero__button');
-const modal = document.querySelector('.modal');
-const modalClose = document.querySelector('.modal__close');
+// modal
 
-heroButton.addEventListener('click', () => {
-    modal.style.display = 'flex';
-});
+const modal = document.querySelector(".modal")
+const openBtn = document.querySelector(".open-modal")
+const closeBtn = document.querySelector(".modal__close")
 
-modalClose.addEventListener('click', () => {
-    modal.style.display = 'none';
-});
+openBtn.onclick = () => {
 
-window.addEventListener('click', (e) => {
-    if (e.target === modal) {
-        modal.style.display = 'none';
+    modal.classList.add("active")
+
+}
+
+closeBtn.onclick = () => {
+
+    modal.classList.remove("active")
+
+}
+
+window.onclick = (e)=>{
+
+    if(e.target === modal){
+
+        modal.classList.remove("active")
+
     }
-});
 
-// ================= BURGER MENU =================
-const burger = document.querySelector('.burger');
-const nav = document.querySelector('.nav');
+}
 
-burger.addEventListener('click', () => {
-    nav.classList.toggle('active');
-    burger.classList.toggle('active');
-});
 
-// ================= FORM SUBMIT (Telegram placeholder) =================
-const form = document.querySelector('.modal form');
+// reveal animation
 
-form.addEventListener('submit', (e) => {
-    e.preventDefault();
+function reveal(){
 
-    const data = {
-        message: form.querySelector('textarea').value,
-        name: form.querySelector('input[type="text"]').value,
-        phone: form.querySelector('input[type="tel"]').value
-    };
+    const reveals = document.querySelectorAll(".reveal")
 
-    console.log('Form data to send:', data);
+    reveals.forEach(el=>{
 
-    // Здесь можно добавить fetch/post на Telegram bot API
-    // пример:
-    // fetch('https://api.telegram.org/bot<token>/sendMessage', { ... })
+        const windowHeight = window.innerHeight
+        const elementTop = el.getBoundingClientRect().top
 
-    // Закрыть модалку после отправки
-    modal.style.display = 'none';
-    form.reset();
-});
+        if(elementTop < windowHeight - 100){
+
+            el.classList.add("active")
+
+        }
+
+    })
+
+}
+
+window.addEventListener("scroll", reveal)
