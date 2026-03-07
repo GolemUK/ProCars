@@ -75,42 +75,70 @@
 
 <!-- HERO -->
 
-<section class="hero reveal">
+    <section class="hero reveal">
 
-    <div class="hero__overlay"></div>
+        <div class="hero__overlay"></div>
 
-    <div class="container hero__content">
+        <div class="container hero__content">
 
-        <h2>
+            <h2>
 
-            Професійний ремонт авто
+                Професійний ремонт авто
 
-        </h2>
+            </h2>
 
-        <p>
+            <p>
 
-            Сучасне СТО у Дніпрі
+                Сучасне СТО у Дніпрі
 
-        </p>
+            </p>
 
-        <button class="main-btn open-modal">
+            <button class="main-btn open-modal">
 
-            Залишити заявку
+                Залишити заявку
 
-        </button>
+            </button>
 
-        <div class="hero__features">
+            <div class="hero__features">
 
-            <p>🔺Ремонт авто будь-якої складності</p>
-            <p>🔺Продаж автозапчастин</p>
-            <p>🔺Шиномонтаж</p>
-            <p>🔺Мийка та хімчистка</p>
+                <p>🔺Ремонт авто будь-якої складності</p>
+                <p>🔺Продаж автозапчастин</p>
+                <p>🔺Шиномонтаж</p>
+                <p>🔺Мийка та хімчистка</p>
+
+            </div>
 
         </div>
 
-    </div>
+    </section>
 
-</section>
+<!-- SHOP -->
+
+    <section class="parts-order">
+
+        <div class="parts-content">
+
+            <h2>
+                Будь-яка запчастина для будь-якого авто
+            </h2>
+
+            <p>
+                Замовляйте потрібні автозапчастини для вашого автомобіля.
+                Ми швидко підберемо деталь за VIN кодом та запропонуємо
+                найкращу ціну.
+            </p>
+
+            <button class="order-btn" onclick="openPartsModal()">
+                Замовити запчастину
+            </button>
+
+        </div>
+
+        <div class="divider"></div>
+
+    </section>
+
+
 
 
 <!-- SERVICES -->
@@ -280,6 +308,30 @@
             </button>
 
         </form>
+
+    </div>
+
+</div>
+
+<!-- MODAL SHOP -->
+
+<div class="modal" id="partsModal">
+
+    <div class="modal__content">
+
+        <span class="modal__close" onclick="closePartsModal()">✕</span>
+
+        <h3>Замовлення запчастини</h3>
+
+        <input type="text" placeholder="Марка та модель авто">
+
+        <input type="text" placeholder="Рік випуску">
+
+        <input type="text" placeholder="VIN код">
+
+        <textarea placeholder="Яка запчастина потрібна"></textarea>
+
+        <button class="main-btn">Відправити запит</button>
 
     </div>
 

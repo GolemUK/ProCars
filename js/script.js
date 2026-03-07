@@ -1,4 +1,6 @@
-// modal
+// ======================================================
+// HERO MODAL (заявка на ремонт)
+// ======================================================
 
 const modal = document.querySelector(".modal")
 const openBtn = document.querySelector(".open-modal")
@@ -16,9 +18,9 @@ closeBtn.onclick = () => {
 
 }
 
-window.onclick = (e)=>{
+window.onclick = (e) => {
 
-    if(e.target === modal){
+    if (e.target === modal) {
 
         modal.classList.remove("active")
 
@@ -27,18 +29,56 @@ window.onclick = (e)=>{
 }
 
 
-// reveal animation
+// ======================================================
+// PARTS MODAL (заказ запчастей)
+// ======================================================
 
-function reveal(){
+function openPartsModal() {
+
+    const partsModal = document.getElementById("partsModal")
+
+    partsModal.classList.add("active")
+
+}
+
+function closePartsModal() {
+
+    const partsModal = document.getElementById("partsModal")
+
+    partsModal.classList.remove("active")
+
+}
+
+
+// закрытие кликом вне модалки
+
+window.addEventListener("click", (e) => {
+
+    const partsModal = document.getElementById("partsModal")
+
+    if (e.target === partsModal) {
+
+        partsModal.classList.remove("active")
+
+    }
+
+})
+
+
+// ======================================================
+// REVEAL ANIMATION
+// ======================================================
+
+function reveal() {
 
     const reveals = document.querySelectorAll(".reveal")
 
-    reveals.forEach(el=>{
+    reveals.forEach(el => {
 
         const windowHeight = window.innerHeight
         const elementTop = el.getBoundingClientRect().top
 
-        if(elementTop < windowHeight - 100){
+        if (elementTop < windowHeight - 100) {
 
             el.classList.add("active")
 

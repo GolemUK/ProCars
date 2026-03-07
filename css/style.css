@@ -169,6 +169,231 @@ a{
     box-shadow:0 0 40px rgba(255,0,0,0.9);
 }
 
+/* ======================================================
+   MODAL FIX
+====================================================== */
+
+.modal {
+    position: fixed;
+    inset: 0;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(0,0,0,0.85);
+
+    z-index: 9999;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal__content {
+
+    position: relative;
+
+    background: #1a1a1a;
+    padding: 40px;
+
+    border-radius: 12px;
+    width: 380px;
+
+    box-shadow: 0 0 40px rgba(0,0,0,0.9);
+
+    animation: modalOpen .35s ease;
+
+}
+
+@keyframes modalOpen {
+
+    from {
+        opacity:0;
+        transform:scale(.85);
+    }
+
+    to {
+        opacity:1;
+        transform:scale(1);
+    }
+
+}
+
+
+/* ======================================================
+   PARTS ORDER BLOCK
+====================================================== */
+
+.parts-order {
+
+    position: relative;
+
+    min-height: 90vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    overflow: hidden;
+
+    background: #0f0f0f;
+
+}
+
+
+/* фон */
+
+.parts-order::before {
+
+    content:"";
+
+    position:absolute;
+    inset:0;
+
+    background:
+        linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.95)),
+        url("../images/courier-silhouette.png") right bottom / 650px no-repeat,
+        url("../images/parts-bg.jpg") center / cover no-repeat;
+
+    opacity:0.95;
+
+}
+
+
+/* мягкий красный свет */
+
+.parts-order::after {
+
+    content:"";
+
+    position:absolute;
+
+    width:900px;
+    height:900px;
+
+    background: radial-gradient(circle, rgba(255,0,0,0.25), transparent 70%);
+
+    top:-200px;
+    left:-200px;
+
+    animation: lightMove 12s linear infinite;
+
+}
+
+
+@keyframes lightMove {
+
+    0% { transform:translate(0,0); }
+
+    50% { transform:translate(200px,120px); }
+
+    100% { transform:translate(0,0); }
+
+}
+
+
+/* контент */
+
+.parts-content {
+
+    position: relative;
+    z-index: 2;
+
+    max-width: 760px;
+
+}
+
+
+/* заголовок */
+
+.parts-content h2 {
+
+    font-size: 54px;
+    font-weight: 800;
+
+    margin-bottom: 25px;
+
+    line-height: 1.2;
+
+}
+
+
+/* текст */
+
+.parts-content p {
+
+    font-size: 21px;
+
+    color: #ddd;
+
+    max-width: 600px;
+
+    margin: auto;
+
+    margin-bottom: 45px;
+
+    line-height: 1.6;
+
+}
+
+
+/* кнопка */
+
+.order-btn {
+
+    background: linear-gradient(45deg,#b80000,#ff0000);
+
+    padding: 22px 65px;
+
+    font-size: 22px;
+    font-weight: 700;
+
+    border: none;
+    border-radius: 40px;
+
+    color: white;
+
+    cursor: pointer;
+
+    box-shadow: 0 0 30px rgba(255,0,0,0.6);
+
+    transition: all .3s;
+
+}
+
+.order-btn:hover {
+
+    transform: scale(1.1);
+
+    box-shadow: 0 0 50px rgba(255,0,0,0.9);
+
+}
+
+
+/* диагональный раздел */
+
+.parts-order .divider {
+
+    position:absolute;
+
+    bottom:-120px;
+    left:0;
+
+    width:100%;
+    height:250px;
+
+    background:#0f0f0f;
+
+    transform:skewY(-6deg);
+
+}
+
+
+
+
 /* ===================== HERO FEATURES - БЛОК УСЛУГ ===================== */
 .hero__features{
     display:flex;
