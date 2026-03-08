@@ -2,122 +2,202 @@
 <html lang="uk">
 
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ProCars Магазин автозапчастин</title>
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProCars Магазин автозапчастин</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
 
-<!-- HEADER (одинаковый) -->
-<header class="header sticky">
-    <div class="container header__wrap">
-        <div class="logo">
-            <a href="index.html">
-                <img src="image/logo.png" alt="ProCars">
+    <!-- HEADER -->
+    <header class="header sticky">
+        <div class="container header__wrap">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="image/logo.png" alt="ProCars">
+                </a>
+            </div>
+
+            <nav class="nav">
+                <a href="index.html">Головна</a>
+                <a href="shop.html" class="active">Наш магазин</a>
+                <a href="#footer">Контакти</a>
+            </nav>
+
+            <div class="contacts">
+                <a href="https://t.me/"><i class="fa-brands fa-telegram"></i></a>
+                <a href="viber://chat?number=+380933133312"><i class="fa-brands fa-viber"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- SHOP HERO -->
+    <section class="shop-hero reveal">
+        <div class="container">
+            <h1>Магазин автозапчастин ProCars</h1>
+            <p>Всі запчастини для будь-якого авто: двигуни, коробки, ходова, гальма, фари, фільтри, масла, колеса та
+                інше.</p>
+            <p>Для уточнення наявності та ціни звертайтесь у Telegram або Viber.</p>
+        </div>
+    </section>
+
+    <!-- SHOP BANNER 1 -->
+    <section class="shop-banner banner-parts reveal">
+        <div class="banner-overlay"></div>
+        <div class="container banner-content">
+            <h2>Будь-які автозапчастини для будь-якого авто</h2>
+            <p>
+                Ми підбираємо запчастини для всіх марок автомобілів: 
+                від бюджетних моделей до преміум сегменту. 
+                Двигуни, коробки передач, ходова частина, гальмівні системи,
+                електроніка, фари, датчики, фільтри, масла та багато іншого.
+            </p>
+            <p>
+                Працюємо з перевіреними постачальниками та брендами.
+                Доставка можлива у будь-яке місто України.
+            </p>
+            <a href="https://t.me/" class="main-btn">Дізнатись наявність</a>
+        </div>
+    </section>
+
+    <!-- ADVANTAGES GRID -->
+    <section class="shop-advantages reveal">
+        <div class="container">
+            <h2 class="section-title">Чому обирають ProCars</h2>
+            <div class="advantages-grid">
+                <div class="adv-card big">
+                    <i class="fa-solid fa-car"></i>
+                    <h3>Всі марки авто</h3>
+                    <p>Запчастини для європейських, японських, корейських та американських автомобілів.</p>
+                </div>
+                <div class="adv-card">
+                    <i class="fa-solid fa-box"></i>
+                    <h3>Будь-які деталі</h3>
+                    <p>Від дрібних датчиків до двигунів та коробок передач.</p>
+                </div>
+                <div class="adv-card">
+                    <i class="fa-solid fa-truck"></i>
+                    <h3>Доставка по Україні</h3>
+                    <p>Відправляємо замовлення у будь-яке місто країни.</p>
+                </div>
+                <div class="adv-card wide">
+                    <i class="fa-solid fa-tags"></i>
+                    <h3>Найкращі ціни</h3>
+                    <p>Прямі постачання від партнерів дозволяють тримати вигідні ціни для клієнтів.</p>
+                </div>
+                <div class="adv-card">
+                    <i class="fa-solid fa-gears"></i>
+                    <h3>Величезний вибір</h3>
+                    <p>Оригінальні запчастини та якісні аналоги від відомих брендів.</p>
+                </div>
+                <div class="adv-card">
+                    <i class="fa-solid fa-headset"></i>
+                    <h3>Підбір запчастин</h3>
+                    <p>Наші спеціалісти підберуть деталь саме для вашого автомобіля.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SHOP CATALOG -->
+    <section class="shop-catalog reveal">
+        <div class="container">
+            <h2 class="section-title">Категорії запчастин</h2>
+            <div class="catalog-grid">
+                <div class="catalog-card">
+                    <img src="image/engine.jpg" alt="Двигуни">
+                    <h3>Двигуни</h3>
+                    <p>Повний асортимент двигунів для BMW, Audi, Mercedes, Toyota, Nissan, Volkswagen</p>
+                    <a href="https://t.me/" class="main-btn">Уточнити в Telegram</a>
+                </div>
+                <div class="catalog-card">
+                    <img src="image/gearbox.jpg" alt="Коробки передач">
+                    <h3>Коробки передач</h3>
+                    <p>Механічні та автоматичні коробки, комплектуючі та ремонтні набори</p>
+                    <a href="viber://chat?number=+380933133312" class="main-btn">Уточнити в Viber</a>
+                </div>
+                <div class="catalog-card">
+                    <img src="image/brake.jpg" alt="Гальмівні системи">
+                    <h3>Гальма</h3>
+                    <p>Диски, колодки, супорти, гальмівні комплекти для всіх авто</p>
+                    <a href="https://t.me/" class="main-btn">Уточнити в Telegram</a>
+                </div>
+                <div class="catalog-card">
+                    <img src="image/wheel.jpg" alt="Колеса та шини">
+                    <h3>Колеса та шини</h3>
+                    <p>Сезонні шини, диски, комплекти на будь-які авто</p>
+                    <a href="viber://chat?number=+380933133312" class="main-btn">Уточнити в Viber</a>
+                </div>
+                <div class="catalog-card">
+                    <img src="image/filter.jpg" alt="Фільтри та масла">
+                    <h3>Фільтри та масла</h3>
+                    <p>Масла, фільтри, охолоджуючі рідини для всіх марок авто</p>
+                    <a href="https://t.me/" class="main-btn">Уточнити в Telegram</a>
+                </div>
+                <div class="catalog-card">
+                    <img src="image/light.jpg" alt="Фари та освітлення">
+                    <h3>Фари та освітлення</h3>
+                    <p>LED, галоген, протитуманні, лампи та комплектуючі</p>
+                    <a href="viber://chat?number=+380933133312" class="main-btn">Уточнити в Viber</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SHOP BANNER 2 -->
+    <section class="shop-banner banner-dark reveal">
+        <div class="banner-overlay"></div>
+        <div class="container banner-content">
+            <h2>Тисячі запчастин в одному місці</h2>
+            <p>
+                Незалежно від того, що потрібно вашому автомобілю —
+                ми знайдемо потрібну деталь.
+            </p>
+            <ul class="parts-list">
+                <li>✔ Двигуни та комплектуючі</li>
+                <li>✔ Коробки передач</li>
+                <li>✔ Ходова частина</li>
+                <li>✔ Гальмівні системи</li>
+                <li>✔ Фари та електроніка</li>
+                <li>✔ Масла та фільтри</li>
+                <li>✔ Диски та шини</li>
+            </ul>
+            <a href="viber://chat?number=+380933133312" class="main-btn">
+                Отримати консультацію
             </a>
         </div>
+    </section>
 
-        <nav class="nav">
-            <a href="index.html">Головна</a>
-            <a href="shop.html" class="active">Наш магазин</a>
-            <a href="#footer">Контакти</a>
-        </nav>
-        <div class="contacts">
-            <a href="https://t.me/"><i class="fa-brands fa-telegram"></i></a>
-            <a href="viber://chat?number=+380933133312"><i class="fa-brands fa-viber"></i></a>
+    <!-- FOOTER -->
+    <footer id="footer" class="footer">
+        <div class="container footer-grid">
+            <div class="footer-logo">
+                <img src="image/logo.png" alt="ProCars">
+                <p class="footer-desc">Професійний автосервіс у Дніпрі. Ремонт автомобілів та запчастини для всіх
+                    марок.</p>
+            </div>
+            <div class="footer-contact">
+                <h3>Контакти</h3>
+                <a href="tel:+38 093 313 33 12">📞 +38 093 313 33 12</a>
+                <a href="https://t.me/"><i class="fa-brands fa-telegram"></i> Telegram</a>
+                <a href="viber://chat?number=+380933133312"><i class="fa-brands fa-viber"></i> Viber</a>
+            </div>
+            <div class="footer-address">
+                <h3>Адреса</h3>
+                <p>📍 м. Дніпро, вул. Прикладна 12</p>
+                <a href="https://maps.google.com/?q=Dnipro" target="_blank" class="map-btn">Знайти на карті</a>
+            </div>
         </div>
-    </div>
-</header>
-
-<!-- SHOP HERO -->
-<section class="shop-hero reveal">
-    <div class="container">
-        <h1>Магазин автозапчастин ProCars</h1>
-        <p>Всі запчастини для будь-якого авто: двигуни, коробки, ходова, гальма, фари, фільтри, масла, колеса та інше.</p>
-        <p>Для уточнення наявності та ціни звертайтесь у Telegram або Viber.</p>
-    </div>
-</section>
-
-<!-- SHOP CATALOG -->
-<section class="shop-catalog reveal">
-    <div class="container">
-        <h2 class="section-title">Категорії запчастин</h2>
-
-        <div class="catalog-grid">
-            <div class="catalog-card">
-                <img src="image/engine.jpg" alt="Двигуни">
-                <h3>Двигуни</h3>
-                <p>Повний асортимент двигунів для BMW, Audi, Mercedes, Toyota, Nissan, Volkswagen</p>
-                <a href="https://t.me/" class="main-btn">Уточнити в Telegram</a>
-            </div>
-
-            <div class="catalog-card">
-                <img src="image/gearbox.jpg" alt="Коробки передач">
-                <h3>Коробки передач</h3>
-                <p>Механічні та автоматичні коробки, комплектуючі та ремонтні набори</p>
-                <a href="viber://chat?number=+380933133312" class="main-btn">Уточнити в Viber</a>
-            </div>
-
-            <div class="catalog-card">
-                <img src="image/brake.jpg" alt="Гальмівні системи">
-                <h3>Гальма</h3>
-                <p>Диски, колодки, супорти, гальмівні комплекти для всіх авто</p>
-                <a href="https://t.me/" class="main-btn">Уточнити в Telegram</a>
-            </div>
-
-            <div class="catalog-card">
-                <img src="image/wheel.jpg" alt="Колеса та шини">
-                <h3>Колеса та шини</h3>
-                <p>Сезонні шини, диски, комплекти на будь-які авто</p>
-                <a href="viber://chat?number=+380933133312" class="main-btn">Уточнити в Viber</a>
-            </div>
-
-            <div class="catalog-card">
-                <img src="image/filter.jpg" alt="Фільтри та масла">
-                <h3>Фільтри та масла</h3>
-                <p>Масла, фільтри, охолоджуючі рідини для всіх марок авто</p>
-                <a href="https://t.me/" class="main-btn">Уточнити в Telegram</a>
-            </div>
-
-            <div class="catalog-card">
-                <img src="image/light.jpg" alt="Фари та освітлення">
-                <h3>Фари та освітлення</h3>
-                <p>LED, галоген, протитуманні, лампи та комплектуючі</p>
-                <a href="viber://chat?number=+380933133312" class="main-btn">Уточнити в Viber</a>
-            </div>
-
+        <div class="footer-bottom">
+            © 2026 ProCars — Усі права захищені
         </div>
-    </div>
-</section>
+    </footer>
 
-<!-- FOOTER -->
-<footer id="footer" class="footer">
-    <div class="container footer-grid">
-        <div class="footer-logo">
-            <img src="image/logo.png" alt="ProCars">
-            <p class="footer-desc">Професійний автосервіс у Дніпрі. Ремонт автомобілів та запчастини для всіх марок.</p>
-        </div>
-        <div class="footer-contact">
-            <h3>Контакти</h3>
-            <a href="tel:+38 093 313 33 12">📞 +38 093 313 33 12</a>
-            <a href="https://t.me/"><i class="fa-brands fa-telegram"></i> Telegram</a>
-            <a href="viber://chat?number=+380933133312"><i class="fa-brands fa-viber"></i> Viber</a>
-        </div>
-        <div class="footer-address">
-            <h3>Адреса</h3>
-            <p>📍 м. Дніпро, вул. Прикладна 12</p>
-            <a href="https://maps.google.com/?q=Dnipro" target="_blank" class="map-btn">Знайти на карті</a>
-        </div>
-    </div>
-    <div class="footer-bottom">
-        © 2026 ProCars — Усі права захищені
-    </div>
-</footer>
-
-<script src="js/script.js"></script>
+    <script src="js/script.js"></script>
 </body>
+
 </html>

@@ -170,58 +170,6 @@ a{
 }
 
 /* ======================================================
-   MODAL FIX
-====================================================== */
-
-.modal {
-    position: fixed;
-    inset: 0;
-
-    display: none;
-    align-items: center;
-    justify-content: center;
-
-    background: rgba(0,0,0,0.85);
-
-    z-index: 9999;
-}
-
-.modal.active {
-    display: flex;
-}
-
-.modal__content {
-
-    position: relative;
-
-    background: #1a1a1a;
-    padding: 40px;
-
-    border-radius: 12px;
-    width: 380px;
-
-    box-shadow: 0 0 40px rgba(0,0,0,0.9);
-
-    animation: modalOpen .35s ease;
-
-}
-
-@keyframes modalOpen {
-
-    from {
-        opacity:0;
-        transform:scale(.85);
-    }
-
-    to {
-        opacity:1;
-        transform:scale(1);
-    }
-
-}
-
-
-/* ======================================================
    PARTS ORDER BLOCK
 ====================================================== */
 
@@ -423,32 +371,111 @@ a{
 
 /* ===================== SERVICES ===================== */
 .services{
-    padding:100px 0;
+    padding:120px 0;
+    background:linear-gradient(180deg,#0f0f0f,#080808);
 }
 
 .section-title{
     text-align:center;
-    font-size:36px;
-    margin-bottom:50px;
+    font-size:40px;
+    margin-bottom:70px;
+    font-weight:800;
 }
 
 .services-grid{
     display:grid;
     grid-template-columns:repeat(3,1fr);
-    gap:30px;
+    gap:35px;
 }
 
 .service-card{
-    background:#1a1a1a;
-    padding:30px;
-    border-radius:15px;
+
+    background:#161616;
+    padding:45px 35px;
+    border-radius:16px;
+
     text-align:center;
-    transition:.3s;
+
+    position:relative;
+
+    transition:.35s;
+
+    border:1px solid rgba(255,255,255,0.05);
+
+    overflow:hidden;
+
+}
+
+/* светящийся эффект */
+
+.service-card::before{
+
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background:linear-gradient(120deg,transparent,rgba(255,0,0,0.25),transparent);
+
+    opacity:0;
+    transition:.4s;
+
+}
+
+.service-card:hover::before{
+    opacity:1;
 }
 
 .service-card:hover{
-    box-shadow:0 0 25px red;
-    transform:translateY(-10px);
+
+    transform:translateY(-12px);
+
+    box-shadow:0 25px 50px rgba(0,0,0,0.7);
+
+    border-color:#ff0000;
+
+}
+
+/* иконка */
+
+.service-icon{
+
+    width:70px;
+    height:70px;
+
+    margin:0 auto 25px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:radial-gradient(circle,#ff0000,#8a0000);
+
+    border-radius:50%;
+
+    box-shadow:0 0 20px rgba(255,0,0,0.5);
+
+}
+
+.service-icon svg{
+
+    width:32px;
+    height:32px;
+
+    fill:white;
+    stroke:white;
+
+}
+
+/* текст */
+
+.service-card h3{
+    font-size:20px;
+    margin-bottom:10px;
+}
+
+.service-card p{
+    font-size:15px;
+    color:#aaa;
 }
 
 /* ===================== SHOP CATALOG ===================== */
@@ -571,46 +598,173 @@ a{
     border-top:1px solid #222;
 }
 
-/* ===================== MODAL ===================== */
+/* ===================== MODAL (ОБЩИЙ СТИЛЬ ДЛЯ 2 ОКОН) ===================== */
+
 .modal{
+
     position:fixed;
     inset:0;
-    background:rgba(0,0,0,.8);
+
     display:none;
     align-items:center;
     justify-content:center;
+
+    background:rgba(0,0,0,0.85);
+    backdrop-filter: blur(6px);
+
+    z-index:9999;
+
 }
+
 .modal.active{
     display:flex;
 }
+
+/* окно */
+
 .modal__content{
-    background:#1a1a1a;
-    padding:40px;
-    border-radius:15px;
-    width:400px;
-    animation:modal .4s;
+
+    position:relative;
+
+    background:linear-gradient(180deg,#1b1b1b,#111);
+
+    padding:45px;
+
+    width:420px;
+    max-width:92%;
+
+    border-radius:18px;
+
+    border:1px solid rgba(255,255,255,0.05);
+
+    box-shadow:
+        0 25px 70px rgba(0,0,0,0.9),
+        0 0 30px rgba(255,0,0,0.15);
+
+    animation:modalOpen .35s ease;
+
 }
-@keyframes modal{
-    from{
-        transform:scale(.7);
-        opacity:0;
-    }
-    to{
-        transform:scale(1);
-        opacity:1;
-    }
+
+/* заголовок */
+
+.modal__content h3{
+
+    font-size:24px;
+    margin-bottom:25px;
+
+    text-align:center;
+
 }
-.modal input,
-.modal textarea{
+
+/* поля */
+
+.modal__content input,
+.modal__content textarea{
+
     width:100%;
-    padding:12px;
-    margin:10px 0;
-    border:none;
-    border-radius:6px;
+
+    padding:14px 16px;
+
+    margin-bottom:18px;
+
+    background:#0f0f0f;
+
+    border:1px solid #333;
+
+    border-radius:8px;
+
+    color:white;
+
+    font-size:15px;
+
+    transition:.3s;
+
 }
-.modal__close{
+
+/* фокус */
+
+.modal__content input:focus,
+.modal__content textarea:focus{
+
+    border-color:#ff0000;
+
+    outline:none;
+
+    box-shadow:0 0 12px rgba(255,0,0,0.35);
+
+}
+
+/* кнопка отправки */
+
+.modal__content button{
+
+    width:100%;
+
+    margin-top:25px;
+
+    padding:16px;
+
+    font-size:17px;
+    font-weight:700;
+
+    border:none;
+    border-radius:35px;
+
+    background:linear-gradient(45deg,#b80000,#ff0000);
+
+    color:white;
+
     cursor:pointer;
-    float:right;
+
+    transition:.3s;
+
+}
+
+.modal__content button:hover{
+
+    transform:scale(1.05);
+
+    box-shadow:0 0 25px rgba(255,0,0,0.6);
+
+}
+
+/* крестик */
+
+.modal__close{
+
+    position:absolute;
+
+    top:15px;
+    right:20px;
+
+    font-size:24px;
+
+    cursor:pointer;
+
+    color:#aaa;
+
+    transition:.3s;
+
+}
+
+.modal__close:hover{
+    color:#ff0000;
+}
+
+/* анимация */
+
+@keyframes modalOpen{
+
+    from{
+        opacity:0;
+        transform:scale(.85);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+
 }
 
 /* ===================== REVEAL ANIMATION ===================== */
@@ -682,5 +836,169 @@ a{
     to{
         opacity:1;
         transform:translateY(0);
+    }
+}
+
+/* ===================== SHOP PAGE STYLES ===================== */
+
+/* SHOP HERO */
+.shop-hero {
+    min-height: 60vh;
+    background: url("../images/engine-bg.jpg") center/cover no-repeat;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 20px;
+    text-align: center;
+    color: #fff;
+}
+
+.shop-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.55); /* затемнение фона */
+    z-index: 1;
+}
+
+.shop-hero .container {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+}
+
+.shop-hero h1 {
+    font-size: 48px;
+    font-weight: 800;
+    margin-bottom: 25px;
+    line-height: 1.2;
+    padding: 12px 20px;
+    border-radius: 15px;
+    background: rgba(255,255,255,0.05);
+    text-shadow: 2px 2px 12px rgba(0,0,0,0.7);
+    border: 2px solid rgba(255,255,255,0.2);
+}
+
+.shop-hero p {
+    font-size: 20px;
+    margin-bottom: 20px;
+    line-height: 1.5;
+    padding: 10px 15px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.05);
+    text-shadow: 1px 1px 6px rgba(0,0,0,0.6);
+}
+
+/* SHOP CATALOG */
+.shop-catalog {
+    padding: 120px 0;
+    background: linear-gradient(180deg, #0f0f0f 0%, #080808 100%);
+}
+
+.catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 35px;
+    margin-top: 50px;
+}
+
+.catalog-card {
+    position: relative;
+    background: #161616;
+    padding: 35px 25px;
+    border-radius: 16px;
+    text-align: center;
+    border: 1px solid rgba(255,255,255,0.05);
+    overflow: hidden;
+    transition: all 0.35s ease;
+}
+
+.catalog-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, transparent, rgba(255,0,0,0.15), transparent);
+    opacity: 0;
+    transition: 0.4s;
+}
+
+.catalog-card:hover::before {
+    opacity: 1;
+}
+
+.catalog-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.6);
+    border-color: #ff0000;
+}
+
+.catalog-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 15px;
+}
+
+.catalog-card h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.catalog-card p {
+    font-size: 16px;
+    color: #ccc;
+    margin-bottom: 15px;
+}
+
+.catalog-card .main-btn {
+    display: inline-block;
+    padding: 12px 25px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 30px;
+    background: linear-gradient(45deg,#b80000,#ff0000);
+    color: #fff;
+    text-decoration: none;
+    box-shadow: 0 0 25px rgba(255,0,0,0.5);
+    transition: all 0.3s;
+}
+
+.catalog-card .main-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 40px rgba(255,0,0,0.8);
+}
+
+/* ===================== REVEAL FIX ===================== */
+.shop-hero.reveal,
+.shop-catalog.reveal {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    transition: none !important;
+}
+
+/* ===================== АДАПТИВ ===================== */
+@media (max-width: 992px) {
+    .catalog-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .shop-hero h1 {
+        font-size: 38px;
+    }
+    .shop-hero p {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 600px) {
+    .catalog-grid {
+        grid-template-columns: 1fr;
+    }
+    .shop-hero h1 {
+        font-size: 28px;
+    }
+    .shop-hero p {
+        font-size: 16px;
     }
 }
