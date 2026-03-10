@@ -1,160 +1,309 @@
 <!DOCTYPE html>
 <html lang="uk">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ProCars Магазин автозапчастин</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
-</head>
+    <head>
 
-<body>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- HEADER -->
-    <header class="header sticky">
-        <div class="container header__wrap">
-            <div class="logo">
-                <a href="index.html">
-                    <img src="image/logo.png" alt="ProCars">
-                </a>
+        <title>ProCars Магазин автозапчастин</title>
+
+        <link rel="stylesheet" href="css/style.css">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    </head>
+
+    <body>
+
+
+        <h1 class="seo-hidden">
+
+        магазин автозапчастин україна
+        купити автозапчастини
+        підбір запчастин по vin
+        оригінальні автозапчастини
+        запчастини bmw audi mercedes volkswagen toyota
+        автозапчастини дніпро
+        доставка автозапчастин україна
+
+        </h1>
+
+
+        <header class="header">
+
+            <div class="container header__wrap">
+
+                <div class="logo">
+
+                    <a href="index.html">
+                        <img src="image/logo.png" alt="ProCars">
+                    </a>
+
+                </div>
+
+
+                <nav class="nav">
+
+                    <a href="index.html">Головна</a>
+                    <a href="shop.html">Наш магазин</a>
+                    <a href="#footer">Контакти</a>
+
+                </nav>
+
+
+                <div class="contacts">
+
+                    <a href="https://t.me/">
+                        <i class="fa-brands fa-telegram"></i>
+                    </a>
+
+                    <a href="viber://chat?number=+380933133312">
+                        <i class="fa-brands fa-viber"></i>
+                    </a>
+
+                </div>
+
+
+                <div class="burger" onclick="toggleMenu()">
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </div>
+
             </div>
 
-            <nav class="nav">
+
+            <div class="mobile-menu">
+
                 <a href="index.html">Головна</a>
-                <a href="shop.html" class="active">Наш магазин</a>
+                <a href="shop.html">Наш магазин</a>
                 <a href="#footer">Контакти</a>
-            </nav>
 
-            <div class="contacts">
-                <a href="https://t.me/"><i class="fa-brands fa-telegram"></i></a>
-                <a href="viber://chat?number=+380933133312"><i class="fa-brands fa-viber"></i></a>
+                <div class="mobile-contacts">
+
+                    <a href="https://t.me/">
+                        <i class="fa-brands fa-telegram"></i> Telegram
+                    </a>
+
+                    <a href="viber://chat?number=+380933133312">
+                        <i class="fa-brands fa-viber"></i> Viber
+                    </a>
+
+                </div>
+
             </div>
-        </div>
-    </header>
 
-    <section class="shop">
+        </header>
 
-        <div class="shop-block">
+
+
+        <section class="shop">
+
+
+            <div class="shop-patch patch-engine">
+                <img src="image/engine.jpg">
+            </div>
+
+            <div class="shop-patch patch-gearbox">
+                <img src="image/gearbox.jpg">
+            </div>
+
+            <div class="shop-patch patch-brake">
+                <img src="image/brake.jpg">
+            </div>
+
+            <div class="shop-patch patch-wheel">
+                <img src="image/wheel.jpg">
+            </div>
+
+            <div class="shop-patch patch-filter">
+                <img src="image/filter.jpg">
+            </div>
+
+            <div class="shop-patch patch-light">
+                <img src="image/light.jpg">
+            </div>
+
 
             <div class="shop-text">
 
-                <h2>Оригинальные автозапчасти</h2>
+                <h2>Оригінальні автозапчастини</h2>
 
-                <p>
-                    Мы подбираем детали точно под ваш автомобиль.
-                    Без несовместимости, без риска покупки
-                    неподходящей детали.
-                </p>
+                    <p>
+
+                    Ми підбираємо деталі точно під ваш автомобіль.
+                    Без ризику купити несумісну запчастину.
+
+                    </p>
 
                 <div class="shop-highlight">
-                    Качество, которому доверяют
+
+                    Підбір по VIN коду
+
                 </div>
 
                 <a class="shop-btn" onclick="openPartsModal()">
-                    Заказать запчасть
+
+                    Замовити запчастину
+
                 </a>
 
             </div>
 
-            <div class="shop-img">
-
-                <img src="images/engine.jpg" alt="engine">
-
-            </div>
-
-        </div>
-
-        <div class="shop-block">
-
-            <div class="shop-img">
-
-                <img src="images/gearbox.jpg" alt="gearbox">
-
-            </div>
 
             <div class="shop-text">
 
-                <h2>Выгодные цены</h2>
+            <h2>Вигідні ціни</h2>
 
-                <p>
-                    Мы работаем напрямую с поставщиками,
-                    поэтому стоимость деталей часто ниже,
-                    чем в обычных магазинах.
-                </p>
+            <p>
 
-                <div class="shop-highlight">
-                    Цена ниже рынка
-                </div>
+            Ми працюємо без посередників,
+            тому пропонуємо вигідні ціни
+            на більшість популярних деталей.
 
-                <a class="shop-btn" onclick="openPartsModal()">
-                    Узнать стоимость
-                </a>
+            </p>
+
+            <div class="shop-highlight">
+
+            Ціни нижчі за ринок
 
             </div>
 
-        </div>
+            </div>
 
-
-        <div class="shop-block">
 
             <div class="shop-text">
 
-                <h2>Быстрая доставка</h2>
+            <h2>Швидка доставка</h2>
 
-                <p>
-                    Большинство популярных запчастей
-                    доставляются в течение 1-2 дней.
-                </p>
+            <p>
 
-                <div class="shop-highlight">
-                    Доставка от 24 часов
-                </div>
+            Більшість запчастин доступні
+            до відправки вже в день замовлення.
 
-                <a class="shop-btn" onclick="openPartsModal()">
-                    Сделать заказ
-                </a>
+            </p>
+
+            <div class="shop-highlight">
+
+            Доставка по всій Україні
 
             </div>
 
-            <div class="shop-img">
-
-                <img src="images/brake.jpg" alt="brake">
-
             </div>
 
-        </div>
 
-    </section>
+        </section>
 
-    <!-- FOOTER -->
-    <footer id="footer" class="footer">
+
+
+        <footer id="footer" class="footer">
+
         <div class="container footer-grid">
-            <div class="footer-logo">
-                <img src="image/logo.png" alt="ProCars">
-                <p class="footer-desc">Професійний автосервіс у Дніпрі. Ремонт автомобілів та запчастини для всіх
-                    марок.</p>
-            </div>
-            <div class="footer-contact">
-                <h3>Контакти</h3>
-                <a href="tel:+38 093 313 33 12">📞 +38 093 313 33 12</a>
-                <a href="https://t.me/"><i class="fa-brands fa-telegram"></i> Telegram</a>
-                <a href="viber://chat?number=+380933133312"><i class="fa-brands fa-viber"></i> Viber</a>
-            </div>
-            <div class="footer-address">
-                <h3>Адреса</h3>
-                <p>📍 м. Дніпро, вул. Прикладна 12</p>
-                <a href="https://maps.google.com/?q=Dnipro" target="_blank" class="map-btn">Знайти на карті</a>
-            </div>
+
+        <div class="footer-logo">
+
+        <img src="image/logo.png">
+
+        <p class="footer-desc">
+
+        Професійний автосервіс у Дніпрі.
+        Ремонт автомобілів та продаж автозапчастин.
+
+        </p>
+
         </div>
+
+
+        <div class="footer-contact">
+
+        <h3>Контакти</h3>
+
+        <a href="tel:+380933133312">
+
+        📞 +38 093 313 33 12
+
+        </a>
+
+        <a href="https://t.me/">
+
+        <i class="fa-brands fa-telegram"></i>
+        Telegram
+
+        </a>
+
+        <a href="viber://chat?number=+380933133312">
+
+        <i class="fa-brands fa-viber"></i>
+        Viber
+
+        </a>
+
+        </div>
+
+
+        <div class="footer-address">
+
+        <h3>Адреса</h3>
+
+        <p>
+
+        📍 м. Дніпро
+
+        </p>
+
+        <a href="https://maps.google.com/?q=Dnipro" target="_blank" class="map-btn">
+
+        Знайти на карті
+
+        </a>
+
+        </div>
+
+        </div>
+
+
         <div class="footer-bottom">
-            © 2026 ProCars — Усі права захищені
+
+        © 2026 ProCars — Усі права захищені
+
         </div>
-    </footer>
 
-    <script src="js/script.js"></script>
-</body>
+        </footer>
 
+
+        <div class="modal" id="partsModal">
+
+        <div class="modal__content">
+
+        <span class="modal__close" onclick="closePartsModal()">✕</span>
+
+        <h3>Замовлення запчастини</h3>
+
+        <input type="text" placeholder="Марка та модель авто">
+
+        <input type="text" placeholder="Рік випуску">
+
+        <input type="text" placeholder="VIN код">
+
+        <textarea placeholder="Яка запчастина потрібна"></textarea>
+
+        <button class="main-btn">
+
+        Відправити запит
+
+        </button>
+
+        </div>
+
+        </div>
+
+
+        <script src="js/script.js"></script>
+
+    </body>
 </html>
