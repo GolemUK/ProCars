@@ -1,163 +1,159 @@
 <!DOCTYPE html>
 <html lang="uk">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ProCars Магазин автозапчастин</title>
-
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
-    <!-- HEADER -->
-    <header class="header">
-        <div class="container header__wrap">
+<!-- HEADER -->
 
-            <div class="logo">
-                <a href="index.html">
-                    <img src="image/logo.png" alt="ProCars">
-                </a>
-            </div>
-
-            <nav class="nav">
-                <a href="index.html">Головна</a>
-                <a href="shop.html">Наш магазин</a>
-                <a href="#footer">Контакти</a>
-            </nav>
-
-            <div class="contacts">
-                <a href="https://t.me/"><i class="fa-brands fa-telegram"></i></a>
-                <a href="viber://chat?number=+380933133312"><i class="fa-brands fa-viber"></i></a>
-            </div>
-
-            <div class="burger" onclick="toggleMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+<header class="header">
+    <div class="container header__wrap">
+        <div class="logo">
+            <a href="index.html"><img src="image/logo.png" alt="ProCars"></a>
         </div>
-
-        <div class="mobile-menu">
+        <nav class="nav">
             <a href="index.html">Головна</a>
             <a href="shop.html">Наш магазин</a>
             <a href="#footer">Контакти</a>
-
-            <div class="mobile-contacts">
-                <a href="https://t.me/"><i class="fa-brands fa-telegram"></i> Telegram</a>
-                <a href="viber://chat?number=+380933133312"><i class="fa-brands fa-viber"></i> Viber</a>
-            </div>
+        </nav>
+        <div class="contacts">
+            <a href="https://t.me/"><i class="fa-brands fa-telegram"></i></a>
+            <a href="viber://chat?number=+380933133312"><i class="fa-brands fa-viber"></i></a>
         </div>
-    </header>
-
-    <!-- SHOP HERO -->
-    <section class="shop-hero">
-        <div class="container">
-            <h2>Магазин автозапчастин</h2>
-            <p>Підберемо запчастини для будь-якого автомобіля. Швидко, точно та за вигідною ціною.</p>
-        </div>
-    </section>
-
-    <!-- SHOP CATEGORIES -->
-    <section class="shop-categories">
-        <div class="container">
-
-            <!-- ENGINE -->
-            <div class="shop-row">
-                <div class="shop-text">
-                    <h2>Двигун</h2>
-                    <p>Підбираємо деталі двигуна: прокладки, ремкомплекти, датчики, поршневі групи та інші компоненти для стабільної роботи авто.</p>
-                </div>
-                <div class="shop-image">
-                    <img src="image/engine.jpg" alt="Двигун">
-                </div>
-            </div>
-
-            <!-- GEARBOX -->
-            <div class="shop-row reverse">
-                <div class="shop-text">
-                    <h2>Коробка передач</h2>
-                    <p>Деталі для механічних та автоматичних КПП: шестерні, синхронізатори, підшипники та комплекти ремонту.</p>
-                </div>
-                <div class="shop-image">
-                    <img src="image/gearbox.jpg" alt="КПП">
-                </div>
-            </div>
-
-            <!-- BRAKES -->
-            <div class="shop-row">
-                <div class="shop-text">
-                    <h2>Гальмівна система</h2>
-                    <p>Гальмівні диски, колодки, супорти та інші елементи безпеки для стабільного гальмування.</p>
-                </div>
-                <div class="shop-image">
-                    <img src="image/brake.jpg" alt="Гальма">
-                </div>
-            </div>
-
-            <!-- SUSPENSION -->
-            <div class="shop-row reverse">
-                <div class="shop-text">
-                    <h2>Ходова частина</h2>
-                    <p>Амортизатори, важелі, підшипники, втулки та інші компоненти підвіски.</p>
-                </div>
-                <div class="shop-image">
-                    <img src="image/wheel.jpg" alt="Ходова">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="shop-cta">
-        <div class="container">
-            <h2>Потрібна інша деталь?</h2>
-            <p>Напишіть нам і ми підберемо автозапчастину по VIN коду.</p>
-            <button class="main-btn open-parts-modal">Замовити підбір</button>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer id="footer" class="footer">
-        <div class="container footer-grid">
-
-            <div class="footer-logo">
-                <img src="image/logo.png" alt="ProCars">
-                <p class="footer-desc">Професійний автосервіс у Дніпрі.</p>
-            </div>
-
-            <div class="footer-contact">
-                <h3>Контакти</h3>
-                <a href="tel:+380933133312">+38 093 313 33 12</a>
-                <a href="https://t.me/">Telegram</a>
-            </div>
-
-            <div class="footer-address">
-                <h3>Адреса</h3>
-                <p>м. Дніпро</p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            © 2026 ProCars — Усі права захищені
-        </div>
-    </footer>
-
-    <!-- PARTS MODAL -->
-    <div class="modal" id="partsModal">
-        <div class="modal__content">
-            <span class="modal__close" onclick="closePartsModal()">✕</span>
-            <h3>Замовлення запчастини</h3>
-            <input type="text" placeholder="Марка та модель авто">
-            <input type="text" placeholder="Рік випуску">
-            <input type="text" placeholder="VIN код">
-            <textarea placeholder="Яка запчастина потрібна"></textarea>
-            <button class="main-btn">Відправити запит</button>
+        <div class="burger" onclick="toggleMenu()">
+            <span></span><span></span><span></span>
         </div>
     </div>
+    <div class="mobile-menu">
+        <a href="index.html">Головна</a>
+        <a href="shop.html">Наш магазин</a>
+        <a href="#footer">Контакти</a>
+        <div class="mobile-contacts">
+            <a href="https://t.me/"><i class="fa-brands fa-telegram"></i> Telegram</a>
+            <a href="viber://chat?number=+380933133312"><i class="fa-brands fa-viber"></i> Viber</a>
+        </div>
+    </div>
+</header>
 
-    <script src="js/script.js"></script>
+<!-- SHOP HERO -->
+
+<section class="shop-hero reveal">
+    <div class="hero-glow"></div>
+    <div class="container">
+        <h2>Магазин автозапчастин</h2>
+        <p>Підберемо запчастини для будь-якого автомобіля. Швидко, точно та за вигідною ціною.</p>
+    </div>
+</section>
+
+<!-- MODAL SHOP -->
+
+<section class="shop-cta reveal shop-background">
+    <div class="container">
+        <h2>Потрібна інша деталь?</h2>
+        <p>Напишіть нам і ми підберемо автозапчастину по VIN коду.</p>
+        <button class="main-btn open-parts-modal">Замовити підбір</button>
+    </div>
+</section>
+
+<!-- SHOP CATEGORIES -->
+
+<section class="shop-categories reveal shop-background">
+    <div class="container">
+
+        <!-- ENGINE -->
+
+        <div class="shop-row">
+            <div class="shop-text">
+                <h2>Двигун</h2>
+                <p>Підбираємо деталі двигуна: прокладки, ремкомплекти, датчики, поршневі групи та інші компоненти для стабільної роботи авто.</p>
+            </div>
+            <div class="shop-image">
+                <img src="image/engine.jpg" alt="Двигун">
+            </div>
+        </div>
+
+        <!-- GEARBOX -->
+
+        <div class="shop-row reverse">
+            <div class="shop-text">
+                <h2>Коробка передач</h2>
+                <p>Деталі для механічних та автоматичних КПП: шестерні, синхронізатори, підшипники та комплекти ремонту.</p>
+            </div>
+            <div class="shop-image">
+                <img src="image/gearbox.jpg" alt="КПП">
+            </div>
+        </div>
+
+        <!-- BRAKES -->
+
+        <div class="shop-row">
+            <div class="shop-text">
+                <h2>Гальмівна система</h2>
+                <p>Гальмівні диски, колодки, супорти та інші елементи безпеки для стабільного гальмування.</p>
+            </div>
+            <div class="shop-image">
+                <img src="image/brake.jpg" alt="Гальма">
+            </div>
+        </div>
+
+        <!-- SUSPENSION -->
+
+        <div class="shop-row reverse">
+            <div class="shop-text">
+                <h2>Ходова частина</h2>
+                <p>Амортизатори, важелі, підшипники, втулки та інші компоненти підвіски.</p>
+            </div>
+            <div class="shop-image">
+                <img src="image/wheel.jpg" alt="Ходова">
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- FOOTER -->
+
+<footer class="footer" id="footer">
+    <div class="container footer-grid">
+        <div class="footer-logo">
+            <img src="image/logo.png" alt="ProCars">
+            <p class="footer-desc">Професійний автосервіс у Дніпрі. Ремонт автомобілів будь-якої складності, продаж автозапчастин та обслуговування.</p>
+        </div>
+        <div class="footer-contact">
+            <h3>Контакти</h3>
+            <a href="tel:+380933133312">📞 +38 093 313 33 12</a>
+            <a href="https://t.me/"><i class="fa-brands fa-telegram"></i> Telegram</a>
+            <a href="viber://chat?number=+380933133312"><i class="fa-brands fa-viber"></i> Viber</a>
+        </div>
+        <div class="footer-address">
+            <h3>Адреса</h3>
+            <p>📍 м. Дніпро Лівобережний 3 гк. ----</p>
+            <a href="https://maps.google.com/?q=Dnipro" target="_blank" class="map-btn">Знайти на карті</a>
+        </div>
+    </div>
+    <div class="footer-bottom">© 2026 ProCars — Усі права захищені</div>
+</footer>
+
+<!-- PARTS MODAL -->
+
+<div class="modal" id="partsModal">
+    <div class="modal__content">
+        <span class="modal__close" onclick="closePartsModal()">✕</span>
+        <h3>Замовлення запчастини</h3>
+        <input type="text" placeholder="Марка та модель авто">
+        <input type="text" placeholder="Рік випуску">
+        <input type="text" placeholder="VIN код">
+        <textarea placeholder="Яка запчастина потрібна"></textarea>
+        <button class="main-btn">Відправити запит</button>
+    </div>
+</div>
+
+<script src="js/script.js"></script>
 </body>
 </html>

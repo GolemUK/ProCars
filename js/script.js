@@ -1,74 +1,82 @@
 // ======================================================
-// BURGER MENU
+// HEADER SCROLL & BURGER
 // ======================================================
+const header = document.querySelector(".header");
+const burger = document.querySelector(".burger");
+const mobileMenu = document.querySelector(".mobile-menu");
 
-function toggleMenu(){
-    const menu = document.querySelector(".mobile-menu");
-    menu.classList.toggle("active");
-}
+window.addEventListener("scroll", () => {
+    if(window.scrollY > 50){
+        header.classList.add("scrolled");
+    } else {
+        header.classList.remove("scrolled");
+    }
+});
+
+burger.addEventListener("click", () => {
+    burger.classList.toggle("active");
+    mobileMenu.classList.toggle("active");
+});
 
 // ======================================================
 // HERO MODAL
 // ======================================================
+const heroModal = document.querySelector(".modal.hero");
+const openHeroBtn = document.querySelector(".open-modal");
+const closeHeroBtn = heroModal ? heroModal.querySelector(".modal__close") : null;
 
-const modal = document.querySelector(".modal.hero"); // уточняем hero
-const openBtn = document.querySelector(".open-modal");
-const closeBtn = modal ? modal.querySelector(".modal__close") : null;
-
-if(openBtn){
-    openBtn.onclick = () => modal.classList.add("active");
+if(openHeroBtn){
+    openHeroBtn.addEventListener("click", () => {
+        heroModal.classList.add("active");
+        document.body.style.overflow = "hidden"; // отключаем скролл фона
+    });
 }
 
-if(closeBtn){
-    closeBtn.onclick = () => modal.classList.remove("active");
+if(closeHeroBtn){
+    closeHeroBtn.addEventListener("click", () => {
+        heroModal.classList.remove("active");
+        document.body.style.overflow = "auto";
+    });
 }
 
-window.onclick = (e) => {
-    if(e.target === modal){
-        modal.classList.remove("active");
+window.addEventListener("click", (e) => {
+    if(e.target === heroModal){
+        heroModal.classList.remove("active");
+        document.body.style.overflow = "auto";
     }
-};
+});
 
 // ======================================================
 // PARTS MODAL
 // ======================================================
+const partsModal = document.getElementById("partsModal");
+const openPartsBtns = document.querySelectorAll(".open-parts-modal, .order-btn");
+const closePartsBtn = partsModal ? partsModal.querySelector(".modal__close") : null;
 
-function openPartsModal(){
-    const partsModal = document.getElementById("partsModal");
-    if(partsModal){
+openPartsBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
         partsModal.classList.add("active");
-    }
-}
+        document.body.style.overflow = "hidden";
+    });
+});
 
-function closePartsModal(){
-    const partsModal = document.getElementById("partsModal");
-    if(partsModal){
+if(closePartsBtn){
+    closePartsBtn.addEventListener("click", () => {
         partsModal.classList.remove("active");
-    }
+        document.body.style.overflow = "auto";
+    });
 }
 
-// ======================================================
-// THIRD MODAL (Новая модалка)
-// ======================================================
-
-function openThirdModal(){
-    const thirdModal = document.getElementById("thirdModal");
-    if(thirdModal){
-        thirdModal.classList.add("active");
+window.addEventListener("click", (e) => {
+    if(e.target === partsModal){
+        partsModal.classList.remove("active");
+        document.body.style.overflow = "auto";
     }
-}
-
-function closeThirdModal(){
-    const thirdModal = document.getElementById("thirdModal");
-    if(thirdModal){
-        thirdModal.classList.remove("active");
-    }
-}
+});
 
 // ======================================================
 // REVEAL ANIMATION
 // ======================================================
-
 function reveal(){
     const reveals = document.querySelectorAll(".reveal");
     reveals.forEach(el => {
@@ -79,5 +87,5 @@ function reveal(){
         }
     });
 }
-
 window.addEventListener("scroll", reveal);
+window.addEventListener("load", reveal);
