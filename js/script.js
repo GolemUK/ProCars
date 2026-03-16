@@ -3,98 +3,81 @@
 // ======================================================
 
 function toggleMenu(){
-
-    const menu = document.querySelector(".mobile-menu")
-
-    menu.classList.toggle("active")
-
+    const menu = document.querySelector(".mobile-menu");
+    menu.classList.toggle("active");
 }
-
-
 
 // ======================================================
 // HERO MODAL
 // ======================================================
 
-const modal = document.querySelector(".modal")
-const openBtn = document.querySelector(".open-modal")
-const closeBtn = document.querySelector(".modal__close")
+const modal = document.querySelector(".modal.hero"); // уточняем hero
+const openBtn = document.querySelector(".open-modal");
+const closeBtn = modal ? modal.querySelector(".modal__close") : null;
 
 if(openBtn){
-
-    openBtn.onclick = () => modal.classList.add("active")
-
+    openBtn.onclick = () => modal.classList.add("active");
 }
 
 if(closeBtn){
-
-    closeBtn.onclick = () => modal.classList.remove("active")
-
+    closeBtn.onclick = () => modal.classList.remove("active");
 }
 
-window.onclick = (e)=>{
-
+window.onclick = (e) => {
     if(e.target === modal){
-
-        modal.classList.remove("active")
-
+        modal.classList.remove("active");
     }
-
-}
-
-
+};
 
 // ======================================================
 // PARTS MODAL
 // ======================================================
 
 function openPartsModal(){
-
-    const partsModal = document.getElementById("partsModal")
-
+    const partsModal = document.getElementById("partsModal");
     if(partsModal){
-
-        partsModal.classList.add("active")
-
+        partsModal.classList.add("active");
     }
-
 }
 
 function closePartsModal(){
-
-    const partsModal = document.getElementById("partsModal")
-
+    const partsModal = document.getElementById("partsModal");
     if(partsModal){
-
-        partsModal.classList.remove("active")
-
+        partsModal.classList.remove("active");
     }
-
 }
 
+// ======================================================
+// THIRD MODAL (Новая модалка)
+// ======================================================
 
+function openThirdModal(){
+    const thirdModal = document.getElementById("thirdModal");
+    if(thirdModal){
+        thirdModal.classList.add("active");
+    }
+}
+
+function closeThirdModal(){
+    const thirdModal = document.getElementById("thirdModal");
+    if(thirdModal){
+        thirdModal.classList.remove("active");
+    }
+}
 
 // ======================================================
 // REVEAL ANIMATION
 // ======================================================
 
 function reveal(){
-
-    const reveals = document.querySelectorAll(".reveal")
-
-    reveals.forEach(el=>{
-
-        const windowHeight = window.innerHeight
-        const elementTop = el.getBoundingClientRect().top
-
+    const reveals = document.querySelectorAll(".reveal");
+    reveals.forEach(el => {
+        const windowHeight = window.innerHeight;
+        const elementTop = el.getBoundingClientRect().top;
         if(elementTop < windowHeight - 120){
-
-            el.classList.add("active")
-
+            el.classList.add("active");
         }
-
-    })
-
+    });
 }
 
-window.addEventListener("scroll", reveal)
+window.addEventListener("scroll", reveal);
