@@ -1,4 +1,5 @@
 /* ===================================== RESET ===================================== */
+
 * {
     margin: 0;
     padding: 0;
@@ -24,7 +25,20 @@ a {
 }
 .seo-hidden {
     position: absolute;
-    left: -9999px;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+
+html, body {
+    overflow-x: hidden;
 }
 
 /* ===================================== HEADER ===================================== */
@@ -159,23 +173,53 @@ a {
 
     position: fixed;
     top: 0;
-    right: -100%;
-    width: 260px;
-    height: 100vh;
-    background: #111;
-    display: flex;
-    flex-direction: column;
-    padding: 60px 30px;
-    gap: 25px;
-    transition: right 0.4s ease;
+    right: 0;
+
+    width: 280px;
+    height: 100%;
+
+    background: rgba(15, 15, 15, 0.98);
+    backdrop-filter: blur(10px);
+
+    padding: 80px 20px;
+
+    transform: translateX(100%);
+    opacity: 0;
+    visibility: hidden;
+
+    transition: 
+        transform 0.4s ease,
+        opacity 0.3s ease,
+        visibility 0.3s;
+
     z-index: 9999;
 
 }
 
-.mobile-menu.active {
-    
-    right: 0;
+.menu-overlay {
+    position: fixed;
+    inset: 0;
 
+    background: rgba(0,0,0,0.6);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: 0.3s;
+    z-index: 9998;
+}
+
+.menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* АКТИВНОЕ СОСТОЯНИЕ */
+
+.mobile-menu.active {
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
 }
 
 .mobile-menu a {
@@ -467,84 +511,145 @@ a {
 
 }
 
-/* -------- ALL BACKGROUND ----------- */
+/* ================== HEAVY RED SPARK RAIN ================== */
+
 
 .shop-background {
     position: relative;
-    background-color: #111; /* темный фон */
+    background: #0b0b0b;
     overflow: hidden;
 }
 
-/* Контент блока поверх точек */
+/* Контент поверх */
 .shop-background .container {
     position: relative;
-    z-index: 2;
+    z-index: 5;
 }
 
-/* Передний слой точек */
+/* ОБЩИЕ СЛОИ */
 .shop-background::before,
-.shop-background::after {
+.shop-background::after,
+.shop-background .bg-layer {
     content: "";
     position: absolute;
-    top: 0; left: 0;
-    width: 100%;
-    height: 100%;
-    background: transparent;
-    border-radius: 50%;
+    inset: 0;
+    pointer-events: none;
 }
 
-/* Слой 1 — больше точек, разные размеры */
+/* ================= СЛОЙ 1 (мелкие, но яркие) ================= */
+.shop-background::before {
+    width: 1.5px;
+    height: 1.5px;
+
+    box-shadow:
+        5vw 10vh #ff0000,
+        10vw 30vh #ff2a2a,
+        15vw 50vh #ff0000,
+        20vw 70vh #ff3a3a,
+        25vw 20vh #ff0000,
+        30vw 60vh #ff4444,
+        35vw 40vh #ff0000,
+        40vw 80vh #ff2a2a,
+        45vw 10vh #ff0000,
+        50vw 50vh #ff3a3a,
+        55vw 30vh #ff0000,
+        60vw 75vh #ff4444,
+        65vw 15vh #ff0000,
+        70vw 55vh #ff2a2a,
+        75vw 35vh #ff0000,
+        80vw 65vh #ff3a3a,
+        85vw 25vh #ff0000,
+        90vw 45vh #ff4444,
+        95vw 70vh #ff0000;
+
+    animation: rainFast 8s linear infinite;
+    filter:
+        drop-shadow(0 0 8px rgba(255,0,0,1))
+        drop-shadow(0 0 15px rgba(255,0,0,0.6));
+}
+
+/* ================= СЛОЙ 2 (средние) ================= */
+.shop-background::after {
+    width: 2.2px;
+    height: 2.2px;
+
+    box-shadow:
+        8vw 15vh #ff0000,
+        18vw 45vh #ff5555,
+        28vw 75vh #ff0000,
+        38vw 25vh #ff2a2a,
+        48vw 55vh #ff0000,
+        58vw 35vh #ff3a3a,
+        68vw 65vh #ff0000,
+        78vw 20vh #ff5555,
+        88vw 50vh #ff0000,
+        98vw 80vh #ff2a2a;
+
+    animation: rainSlow 12s linear infinite;
+    filter:
+        drop-shadow(0 0 10px rgba(255,0,0,1))
+        drop-shadow(0 0 20px rgba(255,0,0,0.7));
+}
+
+/* ================= СЛОЙ 3 (крупные яркие “удары”) ================= */
+.shop-background {
+    --big-sparks: 
+        12vw 20vh #ff0000,
+        32vw 60vh #ff0000,
+        52vw 40vh #ff0000,
+        72vw 70vh #ff0000,
+        92vw 30vh #ff0000;
+}
+
 .shop-background::before {
     box-shadow:
-        10vw 5vh #ff0000,
-        20vw 20vh #ff1919,
-        35vw 15vh #ff3b3b,
-        50vw 10vh #ff4d4d,
-        65vw 30vh #ff2e2e,
-        80vw 25vh #ff0000,
-        90vw 40vh #ff1919,
-        5vw 35vh #ff3b3b,
-        15vw 50vh #ff4d4d,
-        40vw 60vh #ff2e2e;
-    width: 2px;
-    height: 2px;
-    border-radius: 50%;
-    animation: sparkFall 15s linear infinite;
-    opacity: 0.9;
+        var(--big-sparks),
+        5vw 10vh #ff0000,
+        10vw 30vh #ff2a2a,
+        15vw 50vh #ff0000,
+        20vw 70vh #ff3a3a,
+        25vw 20vh #ff0000,
+        30vw 60vh #ff4444,
+        35vw 40vh #ff0000,
+        40vw 80vh #ff2a2a,
+        45vw 10vh #ff0000,
+        50vw 50vh #ff3a3a;
 }
 
-/* Слой 2 — для хаотичности */
-.shop-background::after {
-    box-shadow:
-        5vw 10vh #ff1919,
-        25vw 5vh #ff0000,
-        45vw 25vh #ff3b3b,
-        60vw 15vh #ff4d4d,
-        75vw 35vh #ff2e2e,
-        85vw 50vh #ff0000,
-        95vw 40vh #ff1919,
-        15vw 60vh #ff3b3b,
-        30vw 45vh #ff4d4d,
-        55vw 55vh #ff2e2e;
-    width: 2px;
-    height: 2px;
-    border-radius: 50%;
-    animation: sparkFall2 18s linear infinite;
-    opacity: 0.9;
+/* ================= АНИМАЦИИ ================= */
+
+@keyframes rainFast {
+    0% {
+        transform: translateY(-30px) translateX(0);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(60vh) translateX(-15px);
+    }
+    100% {
+        transform: translateY(140vh) translateX(20px);
+        opacity: 0;
+    }
 }
 
-@keyframes sparkFall {
-    0% { transform: translateY(-10px); opacity: 0; }
-    10% { opacity: 1; }
-    90% { transform: translateY(120%); opacity: 1; }
-    100% { opacity: 0; }
-}
-
-@keyframes sparkFall2 {
-    0% { transform: translateY(-10px); opacity: 0; }
-    10% { opacity: 1; }
-    90% { transform: translateY(120%); opacity: 1; }
-    100% { opacity: 0; }
+@keyframes rainSlow {
+    0% {
+        transform: translateY(-40px) translateX(0);
+        opacity: 0;
+    }
+    15% {
+        opacity: 1;
+    }
+    60% {
+        transform: translateY(70vh) translateX(25px);
+    }
+    100% {
+        transform: translateY(150vh) translateX(-20px);
+        opacity: 0;
+    }
 }
 
 /* ===================================== FOOTER ===================================== */

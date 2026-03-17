@@ -10,7 +10,6 @@
 </head>
 <body>
 
-<!-- SEO -->
 <h1 class="seo-hidden">
 СТО Дніпро ремонт авто ремонт двигуна ремонт коробки передач шиномонтаж продаж автозапчастин BMW Audi Mercedes Volkswagen Toyota діагностика авто заміна масла ремонт ходової детейлінг авто
 </h1>
@@ -32,7 +31,7 @@
             <a href="https://t.me/"><i class="fa-brands fa-telegram"></i></a>
             <a href="viber://chat?number=+380933133312"><i class="fa-brands fa-viber"></i></a>
         </div>
-        <div class="burger" onclick="toggleMenu()">
+        <div class="burger">
             <span></span>
             <span></span>
             <span></span>
@@ -67,17 +66,16 @@
 </section>
 
 <!-- PARTS ORDER -->
-<section class="parts-order reveal">
+<section class="parts-order reveal animated-bg">
     <div class="parts-content">
         <h2>Будь-яка запчастина для будь-якого авто</h2>
         <p>Замовляйте потрібні автозапчастини для вашого автомобіля. Ми швидко підберемо деталь за VIN кодом та запропонуємо найкращу ціну.</p>
-        <button class="order-btn" onclick="openPartsModal()">Замовити запчастину</button>
+        <button class="order-btn open-parts-modal">Замовити запчастину</button>
     </div>
-    <div class="divider"></div>
 </section>
 
 <!-- SERVICES -->
-<section class="services reveal">
+<section class="services reveal animated-bg">
     <div class="container">
         <h2 class="section-title">Наші послуги</h2>
         <div class="services-grid">
@@ -164,7 +162,7 @@
     <div class="footer-bottom">© 2026 ProCars — Усі права захищені</div>
 </footer>
 
-<!-- MODAL HERO -->
+<!-- MODALS -->
 <div class="modal hero-modal">
     <div class="modal__content">
         <span class="modal__close">✖</span>
@@ -178,10 +176,9 @@
     </div>
 </div>
 
-<!-- MODAL SHOP -->
 <div class="modal" id="partsModal">
     <div class="modal__content">
-        <span class="modal__close" onclick="closePartsModal()">✕</span>
+        <span class="modal__close">✕</span>
         <h3>Замовлення запчастини</h3>
         <input type="text" placeholder="Марка та модель авто">
         <input type="text" placeholder="Рік випуску">
