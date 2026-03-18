@@ -55,7 +55,7 @@
     <div class="container hero__content">
         <h2>Професійний ремонт авто</h2>
         <p>Сучасне СТО у Дніпрі</p>
-        <button class="main-btn open-modal">Залишити заявку</button>
+        <button class="main-btn open-parts-modal">Залишити заявку</button>
         <div class="hero__features">
             <p>🔺Ремонт авто будь-якої складності</p>
             <p>🔺Продаж автозапчастин</p>
@@ -69,7 +69,8 @@
 <section class="parts-order reveal animated-bg">
     <div class="parts-content">
         <h2>Будь-яка запчастина для будь-якого авто</h2>
-        <p>Замовляйте потрібні автозапчастини для вашого автомобіля. Ми швидко підберемо деталь за VIN кодом та запропонуємо найкращу ціну.</p>
+        <p>Замовляйте потрібні автозапчастини для вашого автомобіля. 
+            Ми швидко підберемо деталь за VIN кодом та запропонуємо найкращу ціну.</p>
         <button class="order-btn open-parts-modal">Замовити запчастину</button>
     </div>
 </section>
@@ -78,7 +79,9 @@
 <section class="services reveal animated-bg">
     <div class="container">
         <h2 class="section-title">Наші послуги</h2>
+
         <div class="services-grid">
+
             <div class="service-card">
                 <div class="service-icon">
                     <svg viewBox="0 0 24 24">
@@ -89,16 +92,18 @@
                 <h3>Ремонт двигуна</h3>
                 <p>Повна діагностика та ремонт</p>
             </div>
+
             <div class="service-card">
                 <div class="service-icon">
                     <svg viewBox="0 0 24 24">
                         <circle cx="12" cy="12" r="5"/>
-                        <circle cx="12" cy="12" r="9" fill="none" stroke-width="2"/>
+                        <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/>
                     </svg>
                 </div>
                 <h3>Ходова частина</h3>
                 <p>Заміна амортизаторів</p>
             </div>
+
             <div class="service-card">
                 <div class="service-icon">
                     <svg viewBox="0 0 24 24">
@@ -109,6 +114,7 @@
                 <h3>Шиномонтаж</h3>
                 <p>Балансування шин</p>
             </div>
+
             <div class="service-card">
                 <div class="service-icon">
                     <svg viewBox="0 0 24 24">
@@ -119,23 +125,28 @@
                 <h3>Автозапчастини</h3>
                 <p>Підбір деталей</p>
             </div>
+
             <div class="service-card">
                 <div class="service-icon">
-                    <path d="M3 12h18"/>
-                    <path d="M6 12a6 6 0 0112 0"/>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2">
+                        <path d="M3 12h18"/>
+                        <path d="M6 12a6 6 0 0112 0"/>
+                    </svg>
                 </div>
                 <h3>Детейлінг</h3>
                 <p>Полірування кузова</p>
             </div>
+
             <div class="service-card">
-                <div class="service-icon">
-                    <path d="M12 2v20"/>
-                    <path d="M6 8h12"/>
-                    <path d="M8 12h8"/>
-                </div>
+                <svg viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" style="width:50px;height:50px;">
+                    <circle cx="6" cy="6" r="2"/>
+                    <circle cx="16" cy="10" r="3"/>
+                    <circle cx="10" cy="16" r="2"/>
+                </svg>
                 <h3>Хімчистка</h3>
                 <p>Очистка салону</p>
             </div>
+
         </div>
     </div>
 </section>
@@ -171,7 +182,7 @@
             <input type="text" placeholder="Ваше ім’я">
             <input type="tel" placeholder="Телефон">
             <textarea placeholder="Опишіть проблему"></textarea>
-            <button class="main-btn">Надіслати</button>
+            <button type="submit" class="main-btn">Надіслати</button>
         </form>
     </div>
 </div>
@@ -184,7 +195,7 @@
         <input type="text" placeholder="Рік випуску">
         <input type="text" placeholder="VIN код">
         <textarea placeholder="Яка запчастина потрібна"></textarea>
-        <button class="main-btn">Відправити запит</button>
+        <button type="submit" class="main-btn">Відправити запит</button>
     </div>
 </div>
 

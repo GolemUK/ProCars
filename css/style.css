@@ -311,19 +311,48 @@ html, body {
 }
 
 /* ===================================== PARTS ORDER ===================================== */
+
 .parts-order {
-    padding: 100px 0;
+    padding: 100px 20px;
     text-align: center;
     background: #121212;
+    overflow: hidden;
 }
-.parts-content h2 {
+
+.parts-order .parts-content {
+    max-width: 700px;
+    margin: 0 auto;
+    word-wrap: break-word;
+}
+
+.parts-order .parts-content h2 {
     font-size: 40px;
     margin-bottom: 20px;
 }
-.parts-content p {
+
+.parts-order .parts-content p {
     font-size: 20px;
     color: #bbb;
     margin-bottom: 35px;
+}
+
+/* Адаптив */
+@media (max-width: 900px) {
+    .parts-order .parts-content h2 {
+        font-size: 32px;
+    }
+    .parts-order .parts-content p {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 600px) {
+    .parts-order .parts-content h2 {
+        font-size: 28px;
+    }
+    .parts-order .parts-content p {
+        font-size: 16px;
+    }
 }
 .order-btn {
     background: red;
@@ -336,6 +365,7 @@ html, body {
 }
 
 /* ===================================== SERVICES ===================================== */
+
 .services {
     padding: 120px 0;
 }
@@ -690,48 +720,64 @@ html, body {
 }
 
 /* ===================================== MODAL ===================================== */
+
 .modal {
     position: fixed;
     inset: 0;
     display: none;
     align-items: center;
     justify-content: center;
-    padding: 30px;
+    padding: 20px;
     background: rgba(0,0,0,0.85);
     z-index: 99999;
     overflow-y: auto;
 }
+
 .modal.active {
     display: flex;
 }
+
 .modal__content {
     position: relative;
     width: 480px;
     max-width: 95%;
     background: #121212;
     border-radius: 16px;
-    padding: 40px 35px;
+    padding: 40px 30px;
     display: flex;
     flex-direction: column;
-    gap: 18px;
+    gap: 20px;
+    box-shadow: 0 0 25px rgba(255,0,0,0.5);
 }
-.modal__content input, .modal__content textarea {
+
+.modal__content input,
+.modal__content textarea {
     width: 100%;
-    padding: 14px;
+    padding: 12px 14px;
     border-radius: 8px;
     border: 1px solid #2a2a2a;
     background: #1a1a1a;
     color: white;
+    font-size: 16px;
 }
+
 .modal__content button.main-btn {
-    align-self: flex-start;
+    align-self: center;
+    margin-top: 10px;
 }
+
 .modal__close {
     position: absolute;
     top: 14px;
     right: 18px;
     font-size: 20px;
     cursor: pointer;
+    color: #ff0000;
+    transition: transform 0.2s;
+}
+
+.modal__close:hover {
+    transform: scale(1.2);
 }
 
 /* ===================================== HERO GLOW ===================================== */
