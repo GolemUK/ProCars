@@ -16,72 +16,120 @@ if (header) {
     });
 }
 
-// ================= MODAL =================
-const modalBtns = document.querySelectorAll(".open-parts-modal");
+
+// ================= MODALS =================
+const modalBtns = document.querySelectorAll("[data-target]");
 const modalCloses = document.querySelectorAll(".modal__close");
 
-// открытие модалки
+// открыть модалку
 modalBtns.forEach(btn => {
     btn.addEventListener("click", () => {
-        const targetId = btn.dataset.target || 'partsModal';
+        const targetId = btn.dataset.target;
         const modal = document.getElementById(targetId);
         if (modal) modal.classList.add("active");
     });
 });
 
-// универсальная функция закрытия и очистки
+// закрытие
 function closeModal(modal) {
     if (!modal) return;
     modal.classList.remove("active");
-    modal.querySelectorAll("input, textarea, select").forEach(field => field.value = "");
+    modal.querySelectorAll("input, textarea, select").forEach(el => el.value = "");
 }
 
-// закрытие крестиком
-modalCloses.forEach(close => {
-    close.addEventListener("click", () => {
-        const modal = close.closest(".modal");
+// крестик
+modalCloses.forEach(btn => {
+    btn.addEventListener("click", () => {
+        const modal = btn.closest(".modal");
         closeModal(modal);
     });
 });
 
-// клик вне модалки
+// клик вне окна
 window.addEventListener("click", e => {
     document.querySelectorAll(".modal.active").forEach(modal => {
         if (e.target === modal) closeModal(modal);
     });
 });
 
+
+// ================= TELEGRAM =================
+async function sendToTelegram(dataObj, type = "Заявка") {
+    const token = "YOUR_BOT_TOKEN"; // 🔥 вставь токен
+    const chat_id = "-1003730035240";
+
+    let message = `🛠 <b>${type}</b>\n\n`;
+
+    for (let key in dataObj) {
+        if (dataObj[key]) {
+            message += `${key}: ${dataObj[key]}\n`;
+        }
+    }
+
+    try {
+        await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                chat_id,
+                text: message,
+                parse_mode: "HTML"
+            })
+        });
+    } catch (err) {
+        console.error("Telegram error:", err);
+    }
+}
+
+
 // ================= FORM SUBMIT =================
 document.querySelectorAll(".modal form").forEach(form => {
-    form.addEventListener("submit", e => {
+    form.addEventListener("submit", async e => {
         e.preventDefault();
 
-        // собираем данные
+        const modal = form.closest(".modal");
+
+        // данные формы
         const dataObj = {};
         form.querySelectorAll("input, textarea, select").forEach(input => {
-            dataObj[input.name || input.id] = input.value;
+            dataObj[input.name || input.placeholder] = input.value;
         });
-        console.log("Форма отправлена:", dataObj);
 
-        // закрываем и очищаем модалку
-        const modal = form.closest(".modal");
+        // определяем тип заявки
+        let type = "Заявка";
+
+        if (modal.id === "heroModal") type = "🚗 HERO Заявка";
+        if (modal.id === "partsModal") type = "🔧 Запчастини";
+        if (modal.id === "shopPartsModal") type = "🛒 Магазин запчастин";
+
+        console.log("Отправка:", type, dataObj);
+
+        // отправка в Telegram
+        await sendToTelegram(dataObj, type);
+
+        // закрытие
         closeModal(modal);
 
-        // уведомление пользователя
-        alert("Форма успешно отправлена!");
+        alert("Заявка отправлена!");
     });
 });
 
+
 // ================= REVEAL ON SCROLL =================
 const reveals = document.querySelectorAll(".reveal");
+
 function revealOnScroll() {
     const triggerBottom = window.innerHeight / 1.1;
-    reveals.forEach(reveal => {
-        if (reveal.getBoundingClientRect().top < triggerBottom) {
-            reveal.classList.add("active");
+
+    reveals.forEach(el => {
+        if (el.getBoundingClientRect().top < triggerBottom) {
+            el.classList.add("active");
         }
     });
 }
+
 window.addEventListener("scroll", revealOnScroll);
 window.addEventListener("load", revealOnScroll);
 setTimeout(revealOnScroll, 100);
