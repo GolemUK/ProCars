@@ -55,7 +55,7 @@ window.addEventListener("click", e => {
 
 // ================= TELEGRAM =================
 async function sendToTelegram(dataObj, type = "Заявка") {
-    const token = "YOUR_BOT_TOKEN"; // 🔥 вставь токен
+    const token = "7984275302:AAFjrcvcqoW9fi2Pjz_KdW_pfgPCFhUVFmw";
     const chat_id = "-1003730035240";
 
     let message = `🛠 <b>${type}</b>\n\n`;
